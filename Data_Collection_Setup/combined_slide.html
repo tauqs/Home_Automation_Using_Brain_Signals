@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function download(filename, text) {
+			  var element = document.createElement('a');
+			  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+			  element.setAttribute('download', filename);
+
+			  element.style.display = 'none';
+			  document.body.appendChild(element);
+
+			  element.click();
+
+			  document.body.removeChild(element);
+			}
+
+
+			var submit = document.getElementById("submit");
+			function save_data(start_time,end_time){
+				var subject_ID = document.getElementById("subject_ID").value;
+				var subject_name = document.getElementById("subject_name").value;
+				var subject_trial_number = document.getElementById("subject_trial_number").value;
+				var subject_trial_type = document.getElementById("subject_trial_type").value;
+				var toWrite = subject_ID+'\t'+subject_name+'\t'+subject_trial_number+'\t'+subject_trial_type+'\t'+start_time+'\t'+end_time+'\n'
+			    download("withbulb_off_to_on_timestamps.txt",toWrite);
+			}
+		</script>
+	</head>
+
+	<body>
+		<script>
+
+		var myVar = setInterval(myTimer ,1000);
+		var slot = 0;
+		var start_time = 0
+		var end_time = 0
+		var num = 1
+
+		function myTimer() {
+		    var image = document.getElementById('myImage');
+		    
+		    if(num==5 && slot>=14){
+		    		image.style.display = 'none';
+		    		document.getElementById("trial_type_5").style.display = 'none';
+		    		var d_end = new Date();
+		    		end_time =  d_end.toLocaleTimeString()+':'+d_end.getMilliseconds();
+		    		document.getElementById("demo2").innerHTML = end_time;		    		
+		    		document.getElementById('name_form').style.display = 'block';
+		    		clearInterval(myVar);
+		    }
+
+		    if(slot==14){
+		    	slot = 0;
+		    	num+=1;
+		    	image.style.display = 'none';
+		    }
+
+		    if(num==1 && slot==0) {
+		    	var d_start = new Date();
+		    	start_time =  d_start.toLocaleTimeString()+':'+d_start.getMilliseconds();
+		    	document.getElementById("demo1").innerHTML = start_time;
+		    }
+		    
+		    var trial_type = "trial_type_"+num;
+		    var trial_type_prev = "trial_type_"+(num-1);
+		    
+		    if (slot<5) {
+		    		 
+		    	if(num>1){
+		    		document.getElementById(trial_type_prev).style.display = 'none';
+		    	}   	
+		    	document.getElementById(trial_type).style.display = 'block';
+		    }
+		    else{
+		    	document.getElementById(trial_type).style.display = 'none';
+		    	if(slot<8){
+		    		image.style.display = 'block';
+		    		image.src = "images/pic_bulboff.gif";
+		    	}
+		    	else if(slot<11){
+		    		image.src = "images/pic_bulbon.gif";
+		    	}
+		    	else if(slot<14){
+		    		image.src = "images/home2.jpg";
+		    	}
+		    }
+
+		    slot+=1; 	 	
+		}
+	</script>
+
+	<font style="position:absolute; top: 40%; left: 50%; transform: translateX(-50%) translateY(-50%);">
+		<h1 id = "trial_type_1"  style="display:none;"> 
+			Think to turn on the bulb. <br>
+			Phrase: None
+		</h1>
+		<h1 id = "trial_type_2"  style="display:none;"> 
+			Think to turn on the bulb. <br>
+			Phrase: Lights On
+		</h1>
+		<h1 id = "trial_type_3"  style="display:none;"> 
+			Think to turn on the bulb. <br>
+			Phrase: Turn on the lights
+		</h1>
+		<h1 id = "trial_type_4"  style="display:none;"> 
+			Think to turn on the bulb. <br>
+			Phrase: Bulb On
+		</h1>
+		<h1 id = "trial_type_5"  style="display:none;"> 
+			<font color='red'>Speak </font> to turn on the bulb. <br>
+			Phrase: Lights On
+		</h1>
+	</font>
+	<p id="demo1"></p>
+	<p id = "demo2"></p>
+	<center>
+		<img id="myImage" height="100%">
+		<form id="name_form" style="display:none;">
+			<br><br><br><br><br><br><br><br><br>
+				ID: <input id="subject_ID" type="text" name="fname"><br>
+				Name: <input id="subject_name" type="text" name="fname"><br>
+				Trial_Number: <input id="subject_trial_number" type="text" name="fname"><br>
+				Trial_Type: <input id="subject_trial_type" type="text" name="fname"><br><br>
+				<input id = "submit" type="submit" value="Submit" onclick="save_data(start_time,end_time)">
+		</form>
+	</center>
+
+	</body>
+</html> 
+

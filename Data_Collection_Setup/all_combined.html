@@ -1,0 +1,267 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function download(filename, text) {
+			  var element = document.createElement('a');
+			  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+			  element.setAttribute('download', filename);
+
+			  element.style.display = 'none';
+			  document.body.appendChild(element);
+
+			  element.click();
+
+			  document.body.removeChild(element);
+			}
+
+
+			var submit = document.getElementById("submit");
+			function save_data(start_time,end_time){
+				var subject_ID = document.getElementById("subject_ID").value;
+				var subject_name = document.getElementById("subject_name").value;
+				var subject_trial_number = document.getElementById("subject_trial_number").value;
+				var subject_trial_type = document.getElementById("subject_trial_type").value;
+				var toWrite = subject_ID+'\t'+subject_name+'\t'+subject_trial_number+'\t'+subject_trial_type+'\t'+start_time+'\t'+end_time+'\n'
+			    download("withbulb_off_to_on_timestamps.txt",toWrite);
+			}
+
+			function play_sound() {
+			  	var audio = new Audio('audio_files/track_1.mp3');
+				audio.play();
+			}
+
+			function beep() {
+			var snd = new Audio("data:audio/wav;base64,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qJrx4KOQjahZxWbcZgztj2c49nKmkId44S71j0c8eV9yDK6uPRzx5X18eDvjvQ6yKo9ZSS6l//8elePK/Lf//IInrOF/FvDoADYAGBMGb7FtErm5MXMlmPAJQVgWta7Zx2go+8xJ0UiCb8LHHdftWyLJE0QIAIsI+UbXu67dZMjmgDGCGl1H+vpF4NSDckSIkk7Vd+sxEhBQMRU8j/12UIRhzSaUdQ+rQU5kGeFxm+hb1oh6pWWmv3uvmReDl0UnvtapVaIzo1jZbf/pD6ElLqSX+rUmOQNpJFa/r+sa4e/pBlAABoAAAAA3CUgShLdGIxsY7AUABPRrgCABdDuQ5GC7DqPQCgbbJUAoRSUj+NIEig0YfyWUho1VBBBA//uQZB4ABZx5zfMakeAAAAmwAAAAF5F3P0w9GtAAACfAAAAAwLhMDmAYWMgVEG1U0FIGCBgXBXAtfMH10000EEEEEECUBYln03TTTdNBDZopopYvrTTdNa325mImNg3TTPV9q3pmY0xoO6bv3r00y+IDGid/9aaaZTGMuj9mpu9Mpio1dXrr5HERTZSmqU36A3CumzN/9Robv/Xx4v9ijkSRSNLQhAWumap82WRSBUqXStV/YcS+XVLnSS+WLDroqArFkMEsAS+eWmrUzrO0oEmE40RlMZ5+ODIkAyKAGUwZ3mVKmcamcJnMW26MRPgUw6j+LkhyHGVGYjSUUKNpuJUQoOIAyDvEyG8S5yfK6dhZc0Tx1KI/gviKL6qvvFs1+bWtaz58uUNnryq6kt5RzOCkPWlVqVX2a/EEBUdU1KrXLf40GoiiFXK///qpoiDXrOgqDR38JB0bw7SoL+ZB9o1RCkQjQ2CBYZKd/+VJxZRRZlqSkKiws0WFxUyCwsKiMy7hUVFhIaCrNQsKkTIsLivwKKigsj8XYlwt/WKi2N4d//uQRCSAAjURNIHpMZBGYiaQPSYyAAABLAAAAAAAACWAAAAApUF/Mg+0aohSIRobBAsMlO//Kk4soosy1JSFRYWaLC4qZBYWFRGZdwqKiwkNBVmoWFSJkWFxX4FFRQWR+LsS4W/rFRb/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VEFHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU291bmRib3kuZGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAwNGh0dHA6Ly93d3cuc291bmRib3kuZGUAAAAAAAAAACU=");  
+			snd.play();
+		}
+
+		</script>
+	</head>
+
+	<body>
+		<script>
+
+		var myVar = setInterval(myTimer ,1000);
+		var slot = 0;
+		var start_time = 0;
+		var end_time = 0;
+		var num = 1;
+		var on_to_off  = false;
+		var relax_time = 30;
+		var delay_time = 20;
+
+		function myTimer() {
+			//play_sound();
+			var d_cur = new Date();
+		    cur_time =  d_cur.toLocaleTimeString()+':'+d_cur.getMilliseconds();
+			document.getElementById("display_current_time").innerHTML = cur_time;
+		    var image = document.getElementById('myImage');
+		    if((num==5||num==10) && slot>14 && slot<(14+relax_time)) {
+		    	document.getElementById("count_down").innerHTML = relax_time-slot+14;
+		    	slot+=1;
+		    	return;}
+		    if(num==5 && slot>=14 && (on_to_off==false)){
+		    		on_to_off = true;
+		    		image.style.display = 'none';
+		    		document.getElementById("trial_type_5").style.display = 'none';
+		    		//var d_end = new Date();
+		    		//end_time =  d_end.toLocaleTimeString()+':'+d_end.getMilliseconds();
+
+		    		document.getElementById("text_1").style.display = 'block';
+		    		document.getElementById("count_down").style.display = 'block';
+		    		document.getElementById("count_down").innerHTML = relax_time;
+		    		slot+=1;
+		    		return;
+		    		//document.getElementById("demo2").innerHTML = end_time;		    		
+		    		//document.getElementById('name_form').style.display = 'block';
+
+		    		//clearInterval(myVar);
+		    }
+		    if(num==10 && slot>=14 && slot<(14+relax_time)){
+		    	image.style.display = 'none';
+	    		document.getElementById("trial_type_10").style.display = 'none';
+	    		document.getElementById("text_1").style.display = 'block';
+	    		document.getElementById("count_down").style.display = 'block';
+	    		document.getElementById("count_down").innerHTML = relax_time;
+	    		slot+=1;
+	    		return;
+		    }
+
+		    if(num==10 && slot>=(14+relax_time)){
+		    	document.getElementById("text_1").style.display = 'none';
+		    	document.getElementById("count_down").style.display = 'none';
+		    	if((slot==14+delay_time-3+relax_time)||(slot==(17+relax_time+2*delay_time-3))){
+		    		beep();
+		    	}
+
+				if(slot==(17+relax_time+delay_time)){
+		    		play_sound();
+		    	}		    	
+
+		    	if(slot<14+delay_time+relax_time) {
+		    		document.getElementById("trial_type_11").style.display = 'block';
+		    		var val = (14+relax_time+delay_time-3)-slot;
+		    		//if(val>0) 
+		    		document.getElementById("count_down").style.display = 'block';
+		    		//else document.getElementById("count_down").style.display = 'none';
+		    		document.getElementById("count_down").innerHTML = val;
+		    	}
+		    	else if(slot<(17+relax_time+delay_time)){
+		    		document.getElementById("count_down").style.display = 'none';
+		    		document.getElementById("trial_type_11").style.display = 'none';
+		    		image.style.display = 'block';
+		    		image.src = "images/home2.jpg";
+		    	}
+		    	else if(slot<(17+relax_time+2*delay_time)){
+
+		    		image.style.display = 'none';
+		    		document.getElementById("trial_type_12").style.display = 'block';
+		    		var val = (17+relax_time+2*delay_time-3)-slot;
+		    		//if(val>0) 
+		    		document.getElementById("count_down").style.display = 'block';
+		    		//else document.getElementById("count_down").style.display = 'none';
+		    		document.getElementById("count_down").innerHTML = val;
+		    	}
+		    	else if(slot<(20+relax_time+2*delay_time)){
+		    		document.getElementById("count_down").style.display = 'none';
+		    		document.getElementById("trial_type_12").style.display = 'none';
+		    		image.style.display = 'block';
+		    		image.src = "images/home2.jpg";
+		    	}
+		    	else if(slot>=(20+relax_time+2*delay_time)){
+		    		play_sound();
+		    		image.style.display = 'none';
+		    		var d_end = new Date();
+		    		end_time =  d_end.toLocaleTimeString()+':'+d_end.getMilliseconds();
+
+		    		document.getElementById("display_end_time").innerHTML = end_time;		    		
+		    		document.getElementById('name_form').style.display = 'block';
+
+		    		clearInterval(myVar);
+		    	}
+		    	slot+=1;
+		    	return;
+		    }
+
+		    if(slot==14||slot==(14+relax_time)){
+		    	slot = 0;
+		    	num+=1;
+		    	image.style.display = 'none';
+		    	document.getElementById("text_1").style.display = 'none';
+		    	document.getElementById("count_down").style.display = 'none';
+		    }
+
+		    if(num==1 && slot==0) {
+		    	var d_start = new Date();
+		    	start_time =  d_start.toLocaleTimeString()+':'+d_start.getMilliseconds();
+		    	document.getElementById("demo").style.display =  'block';
+		    	document.getElementById("display_start_time").innerHTML = start_time;
+		    }
+		    
+		    //var x = on_to_off ? 1 : 0;
+		    x = num;
+		    var trial_type = "trial_type_"+(x);
+		    var trial_type_prev = "trial_type_"+(x-1);
+		    document.getElementById("display_trial_type").innerHTML = trial_type;
+		    if (slot<5) {
+		    		 
+		    	if(num>1){
+		    		document.getElementById(trial_type_prev).style.display = 'none';
+		    	}   	
+		    	document.getElementById(trial_type).style.display = 'block';
+		    }
+		    else{
+		    	document.getElementById(trial_type).style.display = 'none';
+		    	if(slot<8){
+		    		image.style.display = 'block';
+		    		if(on_to_off) image.src = "images/pic_bulbon.gif";
+		    		else image.src = "images/pic_bulboff.gif";
+		    	}
+		    	else if(slot<11){
+		    		if(on_to_off) image.src = "images/pic_bulboff.gif";
+		    		else image.src = "images/pic_bulbon.gif";
+		    	}
+		    	else if(slot<14){
+		    		image.src = "images/home2.jpg";
+		    	}
+		    }
+
+		    slot+=1; 	 	
+		}
+
+	</script>
+
+	<font style="position:absolute; top: 40%; left: 50%; transform: translateX(-50%) translateY(-50%);">
+		<h1 id = "trial_type_1"  style="display:none;"> 
+			Think to turn on the bulb. <br>
+			Phrase: None
+		</h1>
+		<h1 id = "trial_type_2"  style="display:none;"> 
+			Think to turn on the bulb. <br>
+			Phrase: Lights On
+		</h1>
+		<h1 id = "trial_type_3"  style="display:none;"> 
+			Think to turn on the bulb. <br>
+			Phrase: Turn on the lights
+		</h1>
+		<h1 id = "trial_type_4"  style="display:none;"> 
+			Think to turn on the bulb. <br>
+			Phrase: Bulb On
+		</h1>
+		<h1 id = "trial_type_5"  style="display:none;"> 
+			<font color='red'>Speak </font> to turn on the bulb. <br>
+			Phrase: Lights On
+		</h1>
+		<h1 id = "trial_type_6"  style="display:none;"> 
+			Think to turn off the bulb. <br>
+			Phrase: None
+		</h1>
+		<h1 id = "trial_type_7"  style="display:none;"> 
+			Think to turn off the bulb. <br>
+			Phrase: Lights Off
+		</h1>
+		<h1 id = "trial_type_8"  style="display:none;"> 
+			Think to turn off the bulb. <br>
+			Phrase: Turn off the lights
+		</h1>
+		<h1 id = "trial_type_9"  style="display:none;"> 
+			Think to turn off the bulb. <br>
+			Phrase: Bulb Off
+		</h1>
+		<h1 id = "trial_type_10"  style="display:none;"> 
+			<font color='red'>Speak </font> to turn off the bulb. <br>
+			Phrase: Lights Off
+		</h1>
+		<h1 id = "trial_type_11"  style="display:none;"> 
+			After a while you will hear a beep sound, Close your eyes and think to turn on the bulb just after you hear the beep. <br><br>
+			Phrase: None
+		</h1>
+		<h1 id = "trial_type_12"  style="display:none;">
+			After a while you will hear a beep sound, Close your eyes and think to <font color='red'> turn off </font> the bulb just after you hear the beep. <br><br>
+			Phrase: None
+		</h1>
+		<h1 id = "text_1"  style="display:none;"> 
+			Relax 
+		</h1>
+		<h1 id = "count_down" style="display:none;"> <font color='red'></font> seconds	</h1>	
+	</font>
+	<p id="demo" style="display:none;">
+		<font id="display_start_time"> </font>
+		<font id="display_current_time"> </font>
+		<font id="display_trial_type"> </font>
+		<font id="display_end_time"> </font>
+	</p>
+	<center>
+		<img id="myImage" height="100%">
+		<form id="name_form" style="display:none;">
+			<br><br><br><br><br><br><br><br><br>
+				ID: <input id="subject_ID" type="text" name="fname"><br>
+				Name: <input id="subject_name" type="text" name="fname"><br>
+				Trial_Number: <input id="subject_trial_number" type="text" name="fname"><br>
+				Trial_Type: <input id="subject_trial_type" type="text" name="fname"><br><br>
+				<input id = "submit" type="submit" value="Submit" onclick="save_data(start_time,end_time)">
+		</form>
+	</center>
+	</body>
+</html> 
+
