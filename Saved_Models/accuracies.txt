@@ -1,0 +1,11 @@
+best_alpha_beta_no_ica:
+	(252, 6, 1792)
+	(54, 6, 1792)
+	/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/gradients.py:90: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+	  "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
+	./Saved_Models/lstm_model-100
+	Accuracy 46.29630%
+	Accuracy off_to_on 44.4444%
+	Accuracy on_to_off 44.4444%
+	Accuracy do_nothing 50.0000%
+

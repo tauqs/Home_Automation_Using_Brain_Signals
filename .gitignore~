@@ -1,0 +1,6 @@
+.git
+.gitignore
+/Processed_Data
+/Raw_EEG_Data
+/Smoothened_and_Digitally_Filtered
+/Smoothened_Data
