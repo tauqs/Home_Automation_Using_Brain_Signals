@@ -47,7 +47,7 @@
 		var end_time = 0;
 		var num = 1;
 		var on_to_off  = false;
-		var relax_time = 30;
+		var relax_time = 15;
 		var delay_time = 20;
 
 		function myTimer() {
@@ -154,7 +154,7 @@
 		    if(num==1 && slot==0) {
 		    	var d_start = new Date();
 		    	start_time =  d_start.toLocaleTimeString()+':'+d_start.getMilliseconds();
-		    	document.getElementById("demo").style.display =  'block';
+		    	//document.getElementById("demo").style.display =  'block';
 		    	document.getElementById("display_start_time").innerHTML = start_time;
 		    }
 		    
