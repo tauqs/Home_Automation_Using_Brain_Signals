@@ -27,11 +27,11 @@ def diff_in_times(t1,t2):
 		print res+24*60*60*1000
 		return res+24*60*60*1000
 
-raw_data_dir = './Smoothened_and_Digitally_Filtered'
+raw_data_dir = 'Data/Smoothened_and_Digitally_Filtered'
 files = [f for f in os.listdir(raw_data_dir) if f.endswith('.csv')]
-dir_name = './Raw_EEG_Data/Collected_31st_Jan/Time_Stamps'
+dir_name = 'Data/Raw_EEG_Data/Collected_31st_Jan/Time_Stamps'
 
-target_dir = 'Processed_Data'
+target_dir = 'Data/Processed_Data'
 
 time_stamps_files = [f for f in os.listdir(dir_name)]
 time_data = [open(dir_name+'/'+file).read().strip().split('\t') for file in time_stamps_files]
