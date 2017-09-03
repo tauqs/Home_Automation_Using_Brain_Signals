@@ -1,0 +1,121 @@
+
+
+sequence_length: 128	32 32 
+Epoch: 50Accuracy 50.69444%
+Epoch: 100Accuracy 53.47222%
+Epoch: 150Accuracy 54.86111%
+Epoch: 200Accuracy 53.47222%
+
+
+sequence_length: 128	32 32 
+
+
+sequence_length: 128	32 32 
+Epoch: 50Accuracy 50.00000%
+Epoch: 100Accuracy 48.95833%
+Epoch: 150Accuracy 49.65278%
+Epoch: 200Accuracy 48.61111%
+
+
+sequence_length: 64	16 16 
+Epoch: 50Accuracy 59.02778%
+Epoch: 100Accuracy 60.41667%
+Epoch: 150Accuracy 63.19444%
+Epoch: 200Accuracy 62.84722%
+
+
+sequence_length: 32	8 8 
+Epoch: 50Accuracy 56.25000%
+Epoch: 100Accuracy 57.29167%
+Epoch: 150Accuracy 57.29167%
+Epoch: 200Accuracy 56.94444%
+
+
+sequence_length: 16	4 4 
+Epoch: 50Accuracy 58.68056%
+Epoch: 100Accuracy 54.51389%
+Epoch: 150Accuracy 57.98611%
+Epoch: 200Accuracy 56.94444%
+
+
+sequence_length: 8	2 2 
+Epoch: 50Accuracy 53.12500%
+Epoch: 100Accuracy 49.65278%
+Epoch: 150Accuracy 54.86111%
+Epoch: 200Accuracy 50.69444%
+
+
+sequence_length: 4	1 1 
+Epoch: 50Accuracy 56.94444%
+Epoch: 100Accuracy 52.77778%
+Epoch: 150Accuracy 55.20833%
+Epoch: 200Accuracy 55.20833%
+
+
+sequence_length: 4	1 1 
+Epoch: 50Accuracy 58.68056%
+Epoch: 100Accuracy 54.86111%
+Epoch: 150Accuracy 56.94444%
+Epoch: 200Accuracy 54.86111%
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch: 20Accuracy 53.47222%
+
+
+
+Epoch: 20Accuracy 55.55556%
+
+
+
+
+
+
+Epoch: 20Accuracy 50.00000%
+
+
+
+Epoch: 20Accuracy 52.43056%
+
+
+
+Epoch: 20Accuracy 55.20833%
+
+
+
+Epoch: 20Accuracy 54.16667%
+
+
+
+
+
+
+Epoch: 50Accuracy 63.54167%
+Epoch: 100Accuracy 65.97222%
+Epoch: 150Accuracy 67.01389%
+Epoch: 200Accuracy 62.84722%
+Epoch: 200Accuracy 62.84722%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
